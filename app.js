@@ -1,1 +1,1 @@
-console.log("BadgeQuest loaded");
+alert("BadgeQuest JS is running!");
