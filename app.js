@@ -1,14 +1,17 @@
 fetch("data/oas.json")
   .then(response => response.json())
   .then(data => {
-    const main = document.querySelector("main");
-    main.innerHTML = "";
+    const list = document.querySelector("#oas-list");
+    if (!list) {
+      return;
+    }
+    list.innerHTML = "";
 
     data.skills.forEach(skill => {
       const card = document.createElement("div");
       card.className = "card";
 
-      const title = document.createElement("h2");
+      const title = document.createElement("h3");
       title.textContent = skill.name;
       card.appendChild(title);
 
@@ -27,7 +30,7 @@ fetch("data/oas.json")
         card.appendChild(list);
       });
 
-      main.appendChild(card);
+      list.appendChild(card);
     });
   })
   .catch(error => {
